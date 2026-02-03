@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Телефонный справочник</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<header><h2>Телефонный справочник</h2></header>
+<div class="container">
+  <div class="banner">
+    {% if banners.get('left') %}
+      <img src="{{ banners.get('left').image_path }}" style="width:100%" />
+    {% endif %}
+  </div>
+  <div class="sidebar">
+    <div class="search-box">
+      <form method="get" action="/">
+        <input type="text" name="q" placeholder="Поиск" value="{{ q }}" />
+        <button class="button" type="submit">Найти</button>
+      </form>
+    </div>
+    <h4>Подразделения</h4>
+    <ul class="tree">
+      {% for _, item in tree.items() %}
+        {% include 'public/tree_node.html' with context %}
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="main">
+    {% if contacts|length == 0 %}
+      <p>Нет контактов.</p>
+    {% endif %}
+    {% for c in contacts %}
+      <div class="contact-card">
+        <strong>{{ c.full_name }}</strong><br>
+        Отдел: {{ c.department.name }}<br>
+        {% for cp in c.phones %}
+          <span>{{ cp.phone.type }}: {{ cp.phone.number }}</span>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="banner">
+    {% if banners.get('right') %}
+      <img src="{{ banners.get('right').image_path }}" style="width:100%" />
+    {% endif %}
+  </div>
+</div>
+</body>
+</html>

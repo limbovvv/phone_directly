@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="/static/css/style.css"><title>Login</title></head>
+<body>
+  <div class="container">
+    <div class="main">
+      <h3>Админка - вход</h3>
+      {% if error %}<div class="alert">{{ error }}</div>{% endif %}
+      <form method="post">
+        <div class="form-row"><label>Логин</label><br><input name="login" required></div>
+        <div class="form-row"><label>Пароль</label><br><input type="password" name="password" required></div>
+        <button class="button" type="submit">Войти</button>
+      </form>
+    </div>
+  </div>
+</body></html>

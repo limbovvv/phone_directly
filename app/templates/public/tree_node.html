@@ -1,0 +1,11 @@
+<li>
+  <a href="/?dept_id={{ item['node'].id }}" {% if selected_id==item['node'].id %}style="font-weight:bold"{% endif %}>{{ item['node'].name }}</a>
+  {% if item['children'] %}
+    <ul class="tree">
+      {% for child in item['children'] %}
+        {% set item = child %}
+        {% include 'public/tree_node.html' with context %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</li>

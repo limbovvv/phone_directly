@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="/static/css/style.css"><title>Отделы</title></head>
+<body>
+<header><h2>Отделы</h2></header>
+<div class="container">
+  <div class="main">
+    <div class="admin-nav"><a href="/admin">Назад</a> | <a href="/admin/logout">Выйти</a></div>
+    <h3>Создать отдел</h3>
+    <form method="post">
+      <input name="name" placeholder="Название" required>
+      <select name="parent_id">
+        <option value="">Без родителя</option>
+        {% for d in departments %}
+          <option value="{{ d.id }}">{{ d.name }}</option>
+        {% endfor %}
+      </select>
+      <button class="button" type="submit">Создать</button>
+    </form>
+    <h3>Список</h3>
+    <ul>
+    {% for d in departments %}
+      <li>{{ d.name }} {% if d.parent_id %}(parent {{ d.parent_id }}){% endif %}</li>
+    {% endfor %}
+    </ul>
+  </div>
+</div>
+</body></html>

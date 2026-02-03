@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="/static/css/style.css"><title>Аудит</title></head>
+<body>
+<header><h2>Audit log</h2></header>
+<div class="container">
+  <div class="main">
+    <div class="admin-nav"><a href="/admin">Назад</a> | <a href="/admin/logout">Выйти</a></div>
+    <table class="table">
+      <tr><th>Когда</th><th>Пользователь</th><th>Действие</th><th>Сущность</th><th>ID</th><th>Diff</th></tr>
+      {% for l in logs %}
+        <tr>
+          <td>{{ l.created_at }}</td><td>{{ l.user_id }}</td><td>{{ l.action }}</td><td>{{ l.entity }}</td><td>{{ l.entity_id }}</td><td>{{ l.diff_json }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+</body></html>

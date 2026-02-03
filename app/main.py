@@ -8,10 +8,10 @@ from sqlalchemy.orm import Session
 from sqlalchemy import or_, func
 import pandas as pd
 
-from config import settings
-from database import get_db, engine, Base, SessionLocal
-from models import User, Department, Contact, Phone, ContactPhone, Banner, Setting, AuditLog
-from utils import verify_password, get_password_hash, sign_session
+from app.config import settings
+from app.database import get_db, engine, Base, SessionLocal
+from app.models import User, Department, Contact, Phone, ContactPhone, Banner, Setting, AuditLog
+from app.utils import verify_password, get_password_hash, sign_session
 
 app = FastAPI()
 app.state.session_cookie = settings.SESSION_COOKIE_NAME

@@ -1,9 +1,9 @@
 from fastapi import Request, HTTPException, status, Depends
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
-from database import get_db
-from models import User
-from utils import unsign_session
+from app.database import get_db
+from app.models import User
+from app.utils import unsign_session
 
 
 def get_current_user(request: Request, db: Session = Depends(get_db)):

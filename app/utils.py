@@ -1,6 +1,6 @@
 from passlib.context import CryptContext
 from itsdangerous import URLSafeSerializer
-from config import settings
+from app.config import settings
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 signer = URLSafeSerializer(settings.SECRET_KEY)

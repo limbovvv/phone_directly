@@ -5,9 +5,9 @@ from sqlalchemy import engine_from_config, pool
 from alembic import context
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from config import settings
-from database import Base
-import models  # noqa
+from app.config import settings
+from app.database import Base
+import app.models  # noqa
 
 config = context.config
 section = config.get_section(config.config_ini_section)

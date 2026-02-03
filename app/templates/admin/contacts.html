@@ -11,13 +11,17 @@
 <div class="container">
   <div class="main">
     <div class="admin-nav">
+      <a href="/admin">Дашборд</a>
+      <a href="/admin/contacts">Контакты</a>
       <a href="/admin/departments">Отделы</a>
       <a href="/admin/banners">Баннеры</a>
+      <a href="/admin/import-export">Импорт/Экспорт</a>
+      <a href="/admin/audit">Аудит</a>
       <a href="/admin/users">Пользователи</a>
       <a href="/admin/settings">Настройки</a>
     </div>
     {% if error %}<div class="alert">{{ error }}</div>{% endif %}
-    <h3>Новый контакт</h3>
+    <h3 class="section-title">Новый контакт</h3>
     <form method="post">
       <div class="form-row"><input name="full_name" placeholder="ФИО" required></div>
       <div class="form-row">
@@ -30,7 +34,7 @@
       <button class="button" type="submit">Создать</button>
     </form>
 
-    <h3>Список</h3>
+    <h3 class="section-title">Список контактов</h3>
     <table class="table">
       <tr><th>ФИО</th><th>Отдел</th><th>Телефоны</th><th>Статус</th><th>Действия</th></tr>
       {% for c in contacts %}
@@ -44,19 +48,25 @@
           </td>
           <td>{% if c.is_archived %}Архив{% else %}Активен{% endif %}</td>
           <td>
-            {% if not c.is_archived %}
-              <form method="post" action="/admin/contacts/{{ c.id }}/archive" style="display:inline"><button class="button secondary">Архив</button></form>
-            {% else %}
-              <form method="post" action="/admin/contacts/{{ c.id }}/restore" style="display:inline"><button class="button">Восстановить</button></form>
-            {% endif %}
-            <details>
-              <summary>Телефоны</summary>
-              <form method="post" action="/admin/contacts/{{ c.id }}/phones">
-                <textarea name="phone_types" rows="3" placeholder="Типы по строкам (city/internal/ip)"></textarea><br>
-                <textarea name="phone_numbers" rows="3" placeholder="Номера по строкам"></textarea><br>
-                <button class="button" type="submit">Сохранить телефоны</button>
-              </form>
-            </details>
+            <div class="action-stack">
+              {% if not c.is_archived %}
+                <form method="post" action="/admin/contacts/{{ c.id }}/archive"><button class="button secondary">Архив</button></form>
+              {% else %}
+                <form method="post" action="/admin/contacts/{{ c.id }}/restore"><button class="button">Восстановить</button></form>
+              {% endif %}
+              <details class="details-box">
+                <summary>Телефоны</summary>
+                <form method="post" action="/admin/contacts/{{ c.id }}/phones">
+                  <div class="form-row">
+                    <textarea name="phone_types" rows="3" placeholder="Типы по строкам: city, internal, ip"></textarea>
+                  </div>
+                  <div class="form-row">
+                    <textarea name="phone_numbers" rows="3" placeholder="Номера по строкам"></textarea>
+                  </div>
+                  <button class="button" type="submit">Сохранить телефоны</button>
+                </form>
+              </details>
+            </div>
           </td>
         </tr>
       {% endfor %}

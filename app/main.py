@@ -68,7 +68,7 @@ async def add_user_to_request(request: Request, call_next):
         token = request.cookies.get(app.state.session_cookie)
         request.state.current_user = None
         if token:
-            from utils import unsign_session
+            from app.utils import unsign_session
             data = unsign_session(token)
             if data:
                 user = db.query(User).filter(User.id == data.get('user_id'), User.is_active == True).first()

@@ -10,7 +10,16 @@
 </header>
 <div class="container">
   <div class="main">
-    <div class="admin-nav"><a href="/admin">Назад</a> | <a href="/admin/logout">Выйти</a></div>
+    <div class="admin-nav">
+      <a href="/admin">Дашборд</a>
+      <a href="/admin/contacts">Контакты</a>
+      <a href="/admin/departments">Отделы</a>
+      <a href="/admin/banners">Баннеры</a>
+      <a href="/admin/import-export">Импорт/Экспорт</a>
+      <a href="/admin/audit">Аудит</a>
+      <a href="/admin/users">Пользователи</a>
+      <a href="/admin/settings">Настройки</a>
+    </div>
     <h3>Экспорт</h3>
     <form method="post" action="/admin/export">
       <select name="fmt"><option value="csv">CSV</option><option value="xlsx">XLSX</option></select>

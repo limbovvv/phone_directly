@@ -6,7 +6,12 @@
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-<header><h2>Телефонный справочник</h2></header>
+<header>
+  <div class="brand">Телефонный справочник</div>
+  <div class="header-actions">
+    <a class="button ghost" href="/admin/login">Войти в админку</a>
+  </div>
+</header>
 <div class="container">
   <div class="banner">
     {% if banners.get('left') %}

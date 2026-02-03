@@ -1,17 +1,26 @@
-body { font-family: Arial, sans-serif; margin:0; padding:0; }
-header { background:#1f6feb; color:white; padding:10px 20px; }
-.container { display:flex; gap:15px; padding:15px; }
-.sidebar { width:20%; background:#f4f4f4; padding:10px; border-radius:6px; }
-.main { flex:1; background:#fff; padding:10px; border-radius:6px; }
-.banner { width:15%; }
+body { font-family: 'Segoe UI', Arial, sans-serif; margin:0; padding:0; background:#f7f7f7; color:#1f1f1f; }
+header { background: linear-gradient(90deg, #d32f2f, #b71c1c); color:white; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 6px rgba(0,0,0,0.15); }
+.brand { font-weight:700; letter-spacing:0.5px; }
+.header-actions a { margin-left:12px; }
+.container { display:flex; gap:18px; padding:18px; }
+.sidebar { width:22%; background:white; padding:14px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.08); }
+.main { flex:1; background:white; padding:14px 18px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.08); min-height:70vh; }
+.banner { width:16%; }
 ul.tree { list-style:none; padding-left:10px; }
-ul.tree li { margin:4px 0; }
-.contact-card { border-bottom:1px solid #ddd; padding:8px 0; }
-.search-box { margin-bottom:10px; }
-.admin-nav a { margin-right:10px; }
+ul.tree li { margin:6px 0; }
+.tree a { color:#b71c1c; text-decoration:none; }
+.tree a:hover { text-decoration:underline; }
+.contact-card { border-bottom:1px solid #eee; padding:10px 0; }
+.search-box { margin-bottom:12px; display:flex; gap:8px; }
+.search-box input { flex:1; padding:8px 10px; border:1px solid #ddd; border-radius:6px; }
+.admin-nav { margin-bottom:12px; }
+.admin-nav a { margin-right:10px; color:#b71c1c; text-decoration:none; font-weight:600; }
+.admin-nav a:hover { text-decoration:underline; }
 .table { width:100%; border-collapse:collapse; }
-.table td, .table th { padding:6px; border:1px solid #ccc; }
-.form-row { margin-bottom:8px; }
-.button { background:#1f6feb; color:white; padding:6px 10px; border:none; border-radius:4px; cursor:pointer; }
-.button.secondary { background:#555; }
-.alert { color:red; }
+.table td, .table th { padding:8px; border:1px solid #e3e3e3; }
+.form-row { margin-bottom:10px; }
+.button { background:#d32f2f; color:white; padding:8px 12px; border:none; border-radius:6px; cursor:pointer; font-weight:600; }
+.button:hover { background:#b71c1c; }
+.button.secondary { background:#757575; }
+.button.ghost { background:transparent; color:white; border:1px solid rgba(255,255,255,0.7); }
+.alert { color:#d32f2f; font-weight:600; }

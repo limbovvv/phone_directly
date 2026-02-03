@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><link rel="stylesheet" href="/static/css/style.css"><title>Login</title></head>
 <body>
+  <header>
+    <div class="brand">Админка</div>
+    <div class="header-actions">
+      <a class="button ghost" href="/">На сайт</a>
+    </div>
+  </header>
   <div class="container">
     <div class="main">
-      <h3>Админка - вход</h3>
+      <h3>Вход</h3>
       {% if error %}<div class="alert">{{ error }}</div>{% endif %}
       <form method="post">
         <div class="form-row"><label>Логин</label><br><input name="login" required></div>
